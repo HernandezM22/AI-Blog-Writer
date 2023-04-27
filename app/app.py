@@ -6,7 +6,7 @@ from core.settings import settings
 api_key = settings.OPENAI_API_KEY
 openai.api_key = api_key
 
-st.image("app/resources/images/logo.png")
+st.image("resources/images/logo.png")
 st.title("Escritor de blogs con AI")
 
 st.subheader("Etapa 1: Generación de prompts")

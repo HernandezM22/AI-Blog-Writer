@@ -1,5 +1,4 @@
 #Base dependencies image for python resourceallocation app
-# name = usclddopcrq01.azurecr.io/pyotfrmx_resourceallocation_dependencies:latest
 FROM ubuntu:bionic
 RUN apt-get update -y
 
@@ -27,7 +26,12 @@ RUN apt-get update && ACCEPT_EULA=Y apt-get install -y \
 COPY ./requirements.txt ./requirements.txt
 RUN python3.8 -m pip install --upgrade pip
 RUN python3.8 -m pip install -r ./requirements.txt
-
+COPY ./app /app
+RUN groupadd -r dupords && useradd -r -s /bin/false -g dupords dupords \
+    && chown -R dupords:dupords /app
+RUN mkdir -p /home/dupords/.config/
+RUN chown -R dupords:dupords /home/dupords/.config/
+WORKDIR /app
 
 EXPOSE 80
 

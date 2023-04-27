@@ -2,7 +2,7 @@ from pydantic import BaseSettings
 from functools import lru_cache
 
 class Settings(BaseSettings):
-    OPENAI_API_KEY: str
+    OPENAI_API_KEY: str = ""
 
     class Config:
         env_file=".env"

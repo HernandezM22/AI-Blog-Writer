@@ -1,8 +1,9 @@
 import streamlit as st
 import src.nlp_functions as nlp
 import openai
+from core.settings import settings
 
-api_key = ""
+api_key = settings.OPENAI_API_KEY
 openai.api_key = api_key
 
 st.image("app/resources/images/logo.png")
